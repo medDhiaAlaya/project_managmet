@@ -1,4 +1,5 @@
 package tn.esprit.gestion.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import jakarta.persistence.*;
 import java.util.HashSet;
@@ -18,9 +19,10 @@ public class Project {
 
 
     @ManyToMany(mappedBy = "projects")
+    @JsonIgnore
     private Set<Equipe> equipes= new HashSet<>();
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private ProjectDetails projectDetails;
 
 }

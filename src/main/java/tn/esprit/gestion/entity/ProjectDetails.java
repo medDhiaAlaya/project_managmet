@@ -1,4 +1,5 @@
 package tn.esprit.gestion.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import jakarta.persistence.*;
 import java.sql.Date;
@@ -20,6 +21,7 @@ public class ProjectDetails {
 
 
     @OneToOne(mappedBy = "projectDetails")
+    @JsonIgnore
     private Project project;
 
 
